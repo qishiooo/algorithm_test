@@ -1,2 +1,2 @@
 # algorithm_test
-test algorithm
+test algorithm and learning python
