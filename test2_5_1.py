@@ -1,22 +1,22 @@
-import time
+import timeit
 
-def fibonacci() :
+def fibonacci(n) :
 	'''caculate fibonacci sequence using constant storage space 
 	'''
-	a , b = 1 , 1
-	while 1 :
-		yield a 
-		a , b = b , a+b
+	def generate() :
+		a , b = 1 , 1
+		while 1 :
+			yield a 
+			a , b = b , a+b
+
+	f = generate()
+	out = 0
+	for i in range(n):
+		out = f.next()
+	return(out)
+
 
 if __name__ == "__main__":
-	print(__doc__)
-	start = time.time()
-	f = fibonacci()
-	out = 0
-	for n in range(10) :
-		out = f.next()
-	print(out)
-	end = time.time()
-	print(start,end,end-start)
-	
+	t = timeit.Timer( "test2_5_1.fibonacci(10)","import test2_5_1" )
+	print(t.repeat(3,1000))
 	
